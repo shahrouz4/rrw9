@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom */
+:root{--accent:#f97316;--accent-2:#f6c344}
+html,body,#root{height:100%}
+body{background-color:#fdfaf5}
+.header-link{color:inherit}
