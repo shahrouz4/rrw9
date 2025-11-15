@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function App() {
   const [showSplash, setShowSplash] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
 
   useEffect(() => {
     const t = setTimeout(() => setShowSplash(false), 2000)
@@ -23,19 +26,31 @@ export default function App() {
     { id: 'contact', label: 'Contact' },
   ]
 
+  const galleryImages = Array.from({ length: 7 }, (_, i) => `/gallery/${i + 1}.jpeg`)
+  const totalImages = galleryImages.length
+
+  const handlePrevImage = () => {
+    setLightboxIndex((prev) => (prev - 1 + totalImages) % totalImages)
+  }
+
+  const handleNextImage = () => {
+    setLightboxIndex((prev) => (prev + 1) % totalImages)
+  }
+
+
   return (
     <div className="min-h-screen font-sans">
       <AnimatePresence>
         {showSplash && (
           <motion.div
             key="splash"
-            className="fixed inset-0 flex items-center justify-center bg-[#fdfaf5] z-50"
+            className="fixed inset-0 flex items-center justify-center bg-transparent z-50"
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
           >
-            <img src="/logo.png" alt="Reimagine Renovations Logo" className="w-64 h-64 object-contain" />
+            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -46,13 +61,49 @@ export default function App() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: showSplash ? 2 : 0 }}
       >
+        {lightboxOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+            onClick={(e) => { if (e.target === e.currentTarget) setLightboxOpen(false) }}
+          >
+            <button
+              type="button"
+              className="absolute top-4 right-4 text-white text-3xl"
+              onClick={() => setLightboxOpen(false)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center gap-4 max-w-4xl w-full justify-center">
+              <button
+                type="button"
+                className="text-white text-3xl px-2"
+                onClick={(e) => { e.stopPropagation(); handlePrevImage() }}
+              >
+                &#8249;
+              </button>
+              <img loading="lazy" src={galleryImages[lightboxIndex]}
+                alt="Project photo"
+                className="max-h-[80vh] max-w-full rounded shadow-lg"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <button
+                type="button"
+                className="text-white text-3xl px-2"
+                onClick={(e) => { e.stopPropagation(); handleNextImage() }}
+              >
+                &#8250;
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Navigation */}
         <header className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm shadow-sm">
           <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+              <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
               <div>
-                <div className="text-lg font-semibold text-[var(--accent)]">Reimagine Renovations</div>
+                <div className="text-lg font-semibold text-[var(--accent)]">Reimagine Renovations LLC</div>
                 <div className="text-xs text-gray-700">Licensed & Insured • Northern Virginia</div>
               </div>
             </div>
@@ -83,18 +134,18 @@ export default function App() {
         </header>
 
         {/* Hero */}
-        <section id="home" className="relative h-screen flex items-center justify-center">
+        <section id="home" style={{backgroundImage: "url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f')", backgroundSize: "cover", backgroundPosition: "center"}} className="relative h-screen flex items-center justify-center">
           <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80')", filter: 'brightness(0.98)'}}></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/60"></div>
           <div className="relative z-10 text-center px-6 max-w-3xl">
-            <motion.h1 initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{delay:2.1}} className="text-4xl md:text-6xl font-extrabold text-[var(--accent)] leading-tight">Temporary headline — replace later</motion.h1>
-            <motion.p initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{delay:2.3}} className="mt-4 text-lg md:text-xl text-black">Temporary subtext — adjust when design is finalized.</motion.p>
+            <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold text-[var(--accent)] leading-tight">Your Home, Reimagined to Perfection</motion.h1>
+            <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mt-4 text-lg md:text-xl text-white max-w-xl">Experience the next level of home renovation — where every detail is planned, perfected, and built to last.</motion.p>
             <motion.a initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.5}} href="#contact" className="inline-block mt-6 px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-orange-700">Get a Free Quote</motion.a>
           </div>
         </section>
 
         {/* Services */}
-        <section id="services" className="py-16 bg-[#fdfaf5] text-center pt-24">
+        <section id="services" className="py-16 bg-transparent text-center pt-24">
           <h2 className="text-3xl font-bold text-[var(--accent)] mb-8">Our Services</h2>
           <div className="max-w-5xl mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4">
             {['Bathroom Remodeling','Flooring','Paint','Roofing','Landscape','Basement Finishing','Room Additions','Custom Decks & Patios','Whole-Home Remodeling'].map((s) => (
@@ -109,14 +160,25 @@ export default function App() {
         <section id="gallery" className="py-16 bg-white text-center">
           <h2 className="text-3xl font-bold text-[var(--accent)] mb-6">Gallery</h2>
           <div className="max-w-5xl mx-auto grid gap-4 grid-cols-2 md:grid-cols-3 px-4">
-            {[1,2,3,4,5,6].map(i => (
-              <div key={i} className="h-40 bg-gray-200 rounded-lg"></div>
+            {galleryImages.map((src, index) => (
+              <button
+                key={index}
+                type="button"
+                className="relative group h-40 overflow-hidden rounded-lg focus:outline-none"
+                onClick={() => { setLightboxIndex(index); setLightboxOpen(true) }}
+              >
+                <img loading="lazy" src={src}
+                  alt="Home remodeling project in Northern Virginia"
+                  className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
             ))}
           </div>
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-16 bg-[#fdfaf5] text-center">
+        <section id="contact" className="py-16 bg-transparent text-center">
           <h2 className="text-3xl font-bold text-[var(--accent)] mb-6">Contact Us</h2>
           <form action="https://formspree.io/f/xblzooko" method="POST" className="max-w-lg mx-auto space-y-4 text-left">
             <input type="text" name="name" placeholder="Your Name" required className="w-full p-3 border border-gray-300 rounded" />
