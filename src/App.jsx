@@ -105,7 +105,7 @@ export default function App() {
               <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
               <div>
                 <div className="text-lg font-semibold text-[var(--accent)]">Reimagine Renovations LLC</div>
-                <div className="text-xs text-gray-700">Licensed & Insured  •  Northern Virginia</div>
+                <div className="text-xs text-gray-700">Licensed & Insured   •   Northern Virginia</div>
               </div>
             </div>
 
