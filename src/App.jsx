@@ -51,7 +51,7 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
           >
-            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
+            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -139,8 +139,8 @@ export default function App() {
           <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('/hero.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/60"></div>
           <div className="relative z-10 text-center px-6 max-w-3xl">
-            <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold text-[var(--accent)] leading-tight">Your Home, Reimagined to Perfection</motion.h1>
-            <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mt-4 text-lg md:text-xl text-white max-w-xl">Experience the next level of home renovation — where every detail is planned, perfected, and built to last.</motion.p>
+            <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold text-[var(--accent)] leading-tight italic">Your Home, Reimagined to Perfection</motion.h1>
+            <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mt-4 text-lg md:text-xl text-black max-w-xl">Experience the next level of home renovation — where every detail is planned, perfected, and built to last.</motion.p>
             <motion.a initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.5}} href="#contact" className="inline-block mt-6 px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-orange-700">Get a Free Quote</motion.a>
           </div>
         </section>
