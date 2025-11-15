@@ -1,3 +1,4 @@
+// Reimagine Renovations - Build v1.4 - Updated Hero + Contact Fix - 2025-11-15
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -44,13 +45,13 @@ export default function App() {
         {showSplash && (
           <motion.div
             key="splash"
-            className="fixed inset-0 flex items-center justify-center bg-transparent z-50"
+            className="fixed inset-0 flex items-center justify-center bg-transparent"
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
           >
-            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
+            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -134,8 +135,8 @@ export default function App() {
         </header>
 
         {/* Hero */}
-        <section id="home" style={{backgroundImage: "url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f')", backgroundSize: "cover", backgroundPosition: "center"}} className="relative h-screen flex items-center justify-center">
-          <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80')", filter: 'brightness(0.98)'}}></div>
+        <section id="home" style={{backgroundImage: "url('/hero.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} className="relative h-screen flex items-center justify-center">
+          <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('/hero.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/60"></div>
           <div className="relative z-10 text-center px-6 max-w-3xl">
             <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-extrabold text-[var(--accent)] leading-tight">Your Home, Reimagined to Perfection</motion.h1>
@@ -178,23 +179,29 @@ export default function App() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-16 bg-transparent text-center">
-          <h2 className="text-3xl font-bold text-[var(--accent)] mb-6">Contact Us</h2>
-          <form action="https://formspree.io/f/xblzooko" method="POST" className="max-w-lg mx-auto space-y-4 text-left">
-            <input type="text" name="name" placeholder="Your Name" required className="w-full p-3 border border-gray-300 rounded" />
-            <input type="email" name="email" placeholder="Your Email" required className="w-full p-3 border border-gray-300 rounded" />
-            <textarea name="message" placeholder="Your Message" required className="w-full p-3 border border-gray-300 rounded" rows="5"></textarea>
-            <div className="flex items-center gap-4">
-              <button type="submit" className="px-6 py-3 bg-[var(--accent)] text-white rounded font-semibold hover:bg-orange-700">Send Message</button>
-              <div className="text-sm text-black">Or call: <a href="tel:+17033008414" className="text-[var(--accent)]"> (703) 300-8414</a></div>
-            </div>
-          </form>
+        
 
-          <div className="mt-8 space-y-1 text-black">
-            <p>✉️ <a href="mailto:info@reimagine-reno.com" className="text-[var(--accent)]">info@reimagine-reno.com</a></p>
-            <p>📸 <a href="https://instagram.com/reimagine.reno" target="_blank" rel="noreferrer" className="text-[var(--accent)]">@reimagine.reno</a></p>
-          </div>
-        </section>
+<section id="contact" className="py-16 bg-[#fdfaf5] text-center">
+  <h2 className="text-3xl font-bold text-[var(--accent)] mb-8">Contact Us</h2>
+
+  <form action="https://formspree.io/f/xblzooko" method="POST" className="max-w-lg mx-auto space-y-4">
+    <input type="text" name="name" placeholder="Your Name" className="w-full p-3 border border-gray-300 rounded" required />
+    <input type="email" name="email" placeholder="Your Email" className="w-full p-3 border border-gray-300 rounded" required />
+    <textarea name="message" placeholder="Message" className="w-full p-3 border border-gray-300 rounded h-32" required></textarea>
+
+    <button type="submit" className="bg-[var(--accent)] text-white py-3 px-8 rounded font-medium hover:bg-black transition mx-auto block">
+      Send Message
+    </button>
+  </form>
+
+  <div className="mt-8 space-y-1 text-black">
+    <p>📞 <a href="tel:7033008414" className="text-[var(--accent)]">(703) 300-8414</a></p>
+    <p>✉️ <a href="mailto:info@reimagine-reno.com" className="text-[var(--accent)]">info@reimagine-reno.com</a></p>
+    <p>📸 <a href="https://instagram.com/reimagine.reno" target="_blank" rel="noreferrer" className="text-[var(--accent)]">@reimagine.reno</a></p>
+  </div>
+</section>
+
+
 
         <footer className="py-8 text-center bg-white border-t">
           <p className="text-sm">&copy; {new Date().getFullYear()} Reimagine Renovations. All rights reserved.</p>
