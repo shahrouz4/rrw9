@@ -50,7 +50,7 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
           >
-            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
+            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -101,7 +101,7 @@ export default function App() {
         <header className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-sm shadow-sm">
           <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-3">
-              <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
+              <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
               <div>
                 <div className="text-lg font-semibold text-[var(--accent)]">Reimagine Renovations LLC</div>
                 <div className="text-xs text-gray-700">Licensed & Insured • Northern Virginia</div>
