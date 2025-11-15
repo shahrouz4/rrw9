@@ -50,7 +50,7 @@ export default function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 2 }}
           >
-            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-96 h-96 object-contain" />
+            <img loading="lazy" src="/logo.png" alt="Reimagine Renovations Logo" className="w-12 h-12 object-contain" />
           </motion.div>
         )}
       </AnimatePresence>
