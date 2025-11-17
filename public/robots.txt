@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://reimagine-reno.com/sitemap.xml
