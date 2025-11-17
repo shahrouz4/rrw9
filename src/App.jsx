@@ -21,11 +21,13 @@ export default function App() {
   }, [])
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'contact', label: 'Contact' },
-  ]
+  { id: 'home', label: 'Home' },
+  { id: 'services', label: 'Services' },
+  { id: 'about', label: 'About Us' },
+  { id: 'service-areas', label: 'Service Areas' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'contact', label: 'Contact' },
+]
 
   const galleryImages = Array.from({ length: 7 }, (_, i) => `/gallery/${i + 1}.jpeg`)
   const totalImages = galleryImages.length
@@ -217,7 +219,7 @@ export default function App() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true }}
-      className="text-gray-700 text-center max-w-3xl mx-auto mb-10 leading-relaxed"
+      className="text-gray-700 text-left max-w-3xl mx-auto mb-10 leading-relaxed"
     >
       Reimagine Renovations LLC proudly serves homeowners throughout all of Northern Virginia. 
       As a Class A licensed and fully insured contractor with over 20 years of experience, 
@@ -288,7 +290,7 @@ export default function App() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.25 }}
       viewport={{ once: true }}
-      className="text-gray-700 text-center max-w-3xl mx-auto mt-10 leading-relaxed"
+      className="text-gray-700 text-left max-w-3xl mx-auto mt-10 leading-relaxed"
     >
       If your area isn’t listed, there’s a very good chance we still serve it. 
       Contact us today for more information or to request a free quote.
