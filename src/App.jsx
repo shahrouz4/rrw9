@@ -144,6 +144,159 @@ export default function App() {
             <motion.a initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.5}} href="#contact" className="inline-block mt-6 px-6 py-3 bg-[var(--accent)] text-white font-semibold rounded-lg hover:bg-orange-700">Get a Free Quote</motion.a>
           </div>
         </section>
+{/* About Us */}
+<section id="about" className="py-16 bg-white">
+  <div className="max-w-5xl mx-auto px-6 md:px-8">
+    <motion.h2 
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-3xl md:text-4xl font-bold text-[var(--accent)] text-center mb-10"
+    >
+      About Us
+    </motion.h2>
+
+    <div className="space-y-8">
+
+      {/* Who We Are */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h3 className="text-xl font-semibold text-black mb-3">Who We Are</h3>
+        <p className="text-gray-700 leading-relaxed">
+          Reimagine Renovations LLC was founded on a simple belief: improving your home 
+          should be exciting, transparent, and stress-free. As a Class A licensed and fully 
+          insured contractor in Virginia and with over 20 years of experience in different 
+          aspects of the industry, we bring a personal and reliable approach to every project. 
+          We treat your home as if it were our own and take pride in delivering upgrades that 
+          feel meaningful, lasting, and tailored to your lifestyle.
+        </p>
+      </motion.div>
+
+      {/* How We Work */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
+        <h3 className="text-xl font-semibold text-black mb-3">How We Work</h3>
+        <p className="text-gray-700 leading-relaxed">
+          Our process is design-driven, detail-oriented, and tailored to your lifestyle. 
+          We take time to understand your needs, aesthetic preferences, and expectations, 
+          then execute with precision from concept to completion. Clean lines, thoughtful 
+          layouts, and reliable construction define our work. When you want a renovation 
+          that feels elevated, intentional, and built to last — we deliver.
+        </p>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+{/* Service Areas */}
+<section id="service-areas" className="py-16 bg-[#fdfaf5]">
+  <div className="max-w-5xl mx-auto px-6 md:px-8">
+
+    <motion.h2 
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-3xl md:text-4xl font-bold text-[var(--accent)] text-center mb-10"
+    >
+      Service Areas
+    </motion.h2>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      viewport={{ once: true }}
+      className="text-gray-700 text-center max-w-3xl mx-auto mb-10 leading-relaxed"
+    >
+      Reimagine Renovations LLC proudly serves homeowners throughout all of Northern Virginia. 
+      As a Class A licensed and fully insured contractor with over 20 years of experience, 
+      we provide high-quality kitchen, bathroom, basement, and full-home renovation services 
+      across Fairfax County, Loudoun County, Prince William County, Arlington, Alexandria, 
+      Culpeper County, and surrounding areas.
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.15 }}
+      viewport={{ once: true }}
+      className="mb-12"
+    >
+      <h3 className="text-xl font-semibold text-black mb-4 text-center">Counties We Serve</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-800 text-center">
+        <div>Alexandria City</div>
+        <div>Arlington County</div>
+        <div>Culpeper County</div>
+        <div>Fairfax County</div>
+        <div>Fauquier County</div>
+        <div>Loudoun County</div>
+        <div>Prince William County</div>
+      </div>
+    </motion.div>
+
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+      className=""
+    >
+      <h3 className="text-xl font-semibold text-black mb-4 text-center">Cities & Communities</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-800 text-center">
+        <div>Alexandria</div>
+        <div>Annandale</div>
+        <div>Ashburn</div>
+        <div>Bristow</div>
+        <div>Burke</div>
+        <div>Centreville</div>
+        <div>Chantilly</div>
+        <div>Culpeper</div>
+        <div>Dumfries</div>
+        <div>Fairfax</div>
+        <div>Gainesville</div>
+        <div>Great Falls</div>
+        <div>Haymarket</div>
+        <div>Herndon</div>
+        <div>Leesburg</div>
+        <div>Lorton</div>
+        <div>Manassas</div>
+        <div>Manassas Park</div>
+        <div>McLean</div>
+        <div>Occoquan</div>
+        <div>Reston</div>
+        <div>Springfield</div>
+        <div>Sterling</div>
+        <div>Tysons</div>
+        <div>Vienna</div>
+        <div>Woodbridge</div>
+      </div>
+    </motion.div>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.25 }}
+      viewport={{ once: true }}
+      className="text-gray-700 text-center max-w-3xl mx-auto mt-10 leading-relaxed"
+    >
+      If your area isn’t listed, there’s a very good chance we still serve it. 
+      Contact us today for more information or to request a free quote.
+    </motion.p>
+
+  </div>
+</section>
+
 
         {/* Services */}
         <section id="services" className="py-16 bg-transparent text-center pt-24">
