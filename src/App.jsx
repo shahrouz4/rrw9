@@ -235,7 +235,6 @@ export default function App() {
     >
       <h3 className="text-xl font-semibold text-black mb-4 text-center">Counties We Serve</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-800 text-center">
-        <div>Alexandria City</div>
         <div>Arlington County</div>
         <div>Culpeper County</div>
         <div>Fairfax County</div>
@@ -279,6 +278,7 @@ export default function App() {
         <div>Sterling</div>
         <div>Tysons</div>
         <div>Vienna</div>
+        <div>Warrenton</div>
         <div>Woodbridge</div>
       </div>
     </motion.div>
